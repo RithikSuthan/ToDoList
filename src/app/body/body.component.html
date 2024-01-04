@@ -1,0 +1,20 @@
+<div>
+    <div>
+        <h1 class="header">
+            Plan For Today</h1>
+    </div>
+    <div class="mainBody">
+         
+    </div>
+    <div class="plus-icon">
+        <i class="fas fa-plus" (click)="addPlan()"></i>
+     </div>    
+</div>
+
+<div class="popUpModal" *ngIf="popUpModal">
+    <input type="text" [(ngModel)]="data.todoMessage" style="margin-left: 32px;
+    margin-top: 29px;">
+    <br>
+    <button class="addPopup" (click)="addPlanMessage()" style="margin-top: 15px;
+    margin-left: 84px;background-color: lightgreen;">Add</button>
+</div>
