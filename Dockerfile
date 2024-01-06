@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:1.21.3-alpine
 
 # Copy the built Angular application from the build image
-COPY --from=build /app/dist/rithikPortfolio /usr/share/nginx/html
+COPY --from=build /app/dist/ToDoList /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
