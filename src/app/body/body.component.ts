@@ -1,4 +1,5 @@
 import { Component, OnInit,NgModule } from '@angular/core';
+import { TodoserviceService } from 'services/todoservice.service';
 
 @Component({
   selector: 'app-body',
@@ -10,9 +11,9 @@ export class BodyComponent implements OnInit {
   popUpModal:any;
   
   data={
-    todoMessage:''
+    plan:''
   }
-  constructor() { }
+  constructor(private service:TodoserviceService) { }
 
   ngOnInit(): void {
   }
@@ -21,9 +22,32 @@ export class BodyComponent implements OnInit {
   {
     this.popUpModal=true;
   }
-  addPlanMessage()
-  {
+  addPlanMessage() {
     console.log(this.data);
-    this.popUpModal=false;
+    this.popUpModal = false;
+    
+    this.service.addNewPlan(this.data).subscribe(
+      (response) => {
+        // handle success
+        console.log('API Response:', response);
+        
+        // Check the status from the API response
+        if (response && response.status === 'success') {
+          // Success case
+          console.log('Data added successfully:', response.message);
+          // You can perform any additional actions here
+        } else {
+          // Error case
+          console.error('Error:', response.message);
+          // You can show an error message to the user or take other actions
+        }
+      },
+      (error) => {
+        // handle error
+        console.error('API Error:', error);
+        // You can show an error message to the user or take other actions
+      }
+    );
   }
+  
 }
