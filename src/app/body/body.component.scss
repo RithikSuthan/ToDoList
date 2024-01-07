@@ -46,12 +46,16 @@
 }
 
 .checkbox input:checked {
+    width: 20px;
+    height: 19px;
     background-color: green;
     border: 2px solid green; /* Add border for better visibility */
   }
   
   /* Styles for an unchecked checkbox */
   .checkbox input:not(:checked) {
+    width: 20px;
+    height: 19px;
     background-color: red;
     border: 2px solid red; /* Add border for better visibility */
   }
