@@ -4,8 +4,19 @@
             Plan For Today</h1>
     </div>
     <div class="mainBody">
-         
-    </div>
+        <table>
+            <tr *ngFor="let item of rowData; let i = index">
+                <td>
+                  <div class="rowData checkbox">
+                    <input type="checkbox" (change)="clickedCheckBox(i, item.taskNo)" [checked]="item.status">
+                    {{ item?.plan }}
+                  </div>
+                </td>
+              </tr>
+              
+        </table>
+      </div>
+      
     <div class="plus-icon">
         <i class="fas fa-plus" (click)="addPlan()"></i>
      </div>    

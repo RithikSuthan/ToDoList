@@ -15,9 +15,30 @@ export class BodyComponent implements OnInit {
   }
   constructor(private service:TodoserviceService) { }
 
-  ngOnInit(): void {
+  rowData: { taskNo:string, plan: string, status: boolean }[] = [];
+
+
+  async ngOnInit() {
+    await this.loadData();
+    console.log(this.rowData);
   }
 
+  async loadData()
+  {
+    this.service.getAllPlans().subscribe(
+      (response) => {
+        console.log('API Response:', response);
+        this.rowData=response;
+        if (response && response.status === 'success') {
+          console.log('Data added successfully:', response.message);
+        }
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+    console.log(this.rowData);
+  }
   addPlan()
   {
     this.popUpModal=true;
@@ -48,6 +69,23 @@ export class BodyComponent implements OnInit {
         // You can show an error message to the user or take other actions
       }
     );
+  }
+  clickedCheckBox(i: any, taskNo: any) {
+    this.service.changeStatus(taskNo).subscribe(
+      (response) => {
+        console.log('API Response:', response);
+        if (response && response.status === 'success') {
+          console.log('Status Modified successfully:', response.message);
+        } else {
+          console.error('Error:', response?.message);
+        }
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+    setTimeout(() => {
+    }, 1000);
   }
   
 }

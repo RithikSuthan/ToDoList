@@ -12,11 +12,24 @@ export class TodoserviceService {
 
   register_service_url:any;
   constructor(private http:HttpClient) {
-    this.register_service_url = environment.register_service_url
+    this.register_service_url = environment.register_service_url;
    }
 
    addNewPlan(postObj: any) {
     const endpoint = this.register_service_url + EndPoints.ADD_NEW_PLAN;
     return this.http.put<any>(endpoint, postObj);
   }
+
+  getAllPlans()
+  {
+    const endpoint = this.register_service_url + EndPoints.GET_PLANS;
+    return this.http.get<any>(endpoint);
+  }
+
+  changeStatus(taskNo: any) {
+    const endpoint = this.register_service_url + EndPoints.UPDATE_STATUS+ '?taskNo=' + taskNo;
+    return this.http.patch<any>(endpoint, null);
+  }
+  
+
 }
