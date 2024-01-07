@@ -9,7 +9,9 @@ import { TodoserviceService } from 'services/todoservice.service';
 export class BodyComponent implements OnInit {
 
   popUpModal:any;
-  
+  popUPModalEdit:any;
+  editPlan:any;
+  editTaskNo:any;
   data={
     plan:''
   }
@@ -73,7 +75,7 @@ export class BodyComponent implements OnInit {
       this.ngOnInit();
     }, 1000);
   }
-  clickedCheckBox(i: any, taskNo: any) {
+  clickedCheckBox(taskNo: any) {
     this.service.changeStatus(taskNo).subscribe(
       (response) => {
         console.log('API Response:', response);
@@ -90,7 +92,7 @@ export class BodyComponent implements OnInit {
     setTimeout(() => {
     }, 1000);
   }
-  deleteTask(i: any, taskNo: any)
+  deleteTask(taskNo: any)
   {
     this.service.deleteTask(taskNo).subscribe(
       (response) => {
@@ -109,8 +111,30 @@ export class BodyComponent implements OnInit {
       this.ngOnInit();
     }, 1000);
   }
-  editTask(i: any, taskNo: any)
+  edit(taskNo: any)
   {
-    
+      this.popUPModalEdit=true;
+      this.editTaskNo=taskNo;
+  }
+  editPlanMessage()
+  {
+    this.popUPModalEdit=false;
+    this.service.editTask(this.editTaskNo,this.editPlan).subscribe(
+      (response) => {
+        console.log('API Response:', response);
+        if (response && response.status === 'success') {
+          console.log('Status Modified successfully:', response.message);
+        } else {
+          console.error('Error:', response?.message);
+        }
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+    this.editPlan='';
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 1000);
   }
 }

@@ -36,6 +36,11 @@ export class TodoserviceService {
     const endpoint = this.register_service_url + EndPoints.DELETE_TASK+ '?taskNo=' + taskNo;
     return this.http.delete<any>(endpoint);
   }
+  editTask(taskNo:any,newPlan:any)
+  {
+    const endpoint = this.register_service_url + EndPoints.EDIT_TASK+ '?taskNo=' + taskNo+'&newPlan='+newPlan;
+    return this.http.patch<any>(endpoint,null);
+  }
   
 
 }

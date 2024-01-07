@@ -8,10 +8,10 @@
             <tr *ngFor="let item of rowData; let i = index">
                 <td>
                   <div class="rowData checkbox">
-                    <input type="checkbox" (click)="clickedCheckBox(i, item.taskNo)" [checked]="item.status">
+                    <input type="checkbox" (click)="clickedCheckBox(item.taskNo)" [checked]="item.status">
                     {{ item?.plan }}
-                    <button type="button" (click)="editTask(i, item.taskNo)" class="editButton">X</button>
-                    <button type="button" (click)="deleteTask(i, item.taskNo)" class="deleteButton">X</button>
+                    <i style="margin-left: 150px;" class="fas fa-edit" (click)="edit(item.taskNo)"></i>
+                    <button type="button" style="margin-left: 0.5rem;" (click)="deleteTask(item.taskNo)" class="deleteButton">X</button>
                   </div>
                 </td>
               </tr>
@@ -30,4 +30,13 @@
     <br>
     <button class="addPopup" (click)="addPlanMessage()" style="margin-top: 15px;
     margin-left: 84px;background-color: lightgreen;">Add</button>
+</div>
+
+
+<div class="popUpModal" *ngIf="popUPModalEdit">
+    <input type="text" [(ngModel)]="editPlan" style="margin-left: 32px;
+    margin-top: 29px;">
+    <br>
+    <button class="editPopup" (click)="editPlanMessage()" style="margin-top: 15px;
+    margin-left: 84px;background-color: lightblue;">EDIT</button>
 </div>
