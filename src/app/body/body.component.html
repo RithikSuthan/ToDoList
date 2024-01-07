@@ -8,8 +8,10 @@
             <tr *ngFor="let item of rowData; let i = index">
                 <td>
                   <div class="rowData checkbox">
-                    <input type="checkbox" (change)="clickedCheckBox(i, item.taskNo)" [checked]="item.status">
+                    <input type="checkbox" (click)="clickedCheckBox(i, item.taskNo)" [checked]="item.status">
                     {{ item?.plan }}
+                    <button type="button" (click)="editTask(i, item.taskNo)" class="editButton">X</button>
+                    <button type="button" (click)="deleteTask(i, item.taskNo)" class="deleteButton">X</button>
                   </div>
                 </td>
               </tr>

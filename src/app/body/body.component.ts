@@ -69,6 +69,9 @@ export class BodyComponent implements OnInit {
         // You can show an error message to the user or take other actions
       }
     );
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 1000);
   }
   clickedCheckBox(i: any, taskNo: any) {
     this.service.changeStatus(taskNo).subscribe(
@@ -87,5 +90,27 @@ export class BodyComponent implements OnInit {
     setTimeout(() => {
     }, 1000);
   }
-  
+  deleteTask(i: any, taskNo: any)
+  {
+    this.service.deleteTask(taskNo).subscribe(
+      (response) => {
+        console.log('API Response:', response);
+        if (response && response.status === 'success') {
+          console.log('Status Modified successfully:', response.message);
+        } else {
+          console.error('Error:', response?.message);
+        }
+      },
+      (error) => {
+        console.error('API Error:', error);
+      }
+    );
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 1000);
+  }
+  editTask(i: any, taskNo: any)
+  {
+    
+  }
 }
