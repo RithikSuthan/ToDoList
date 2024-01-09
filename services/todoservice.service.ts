@@ -41,6 +41,9 @@ export class TodoserviceService {
     const endpoint = this.register_service_url + EndPoints.EDIT_TASK+ '?taskNo=' + taskNo+'&newPlan='+newPlan;
     return this.http.patch<any>(endpoint,null);
   }
-  
+  addNewUser(postObj: any) {
+    const endpoint = this.register_service_url + EndPoints.NEW_USER_REGISTER;
+    return this.http.put<any>(endpoint, postObj);
+  }  
 
 }
