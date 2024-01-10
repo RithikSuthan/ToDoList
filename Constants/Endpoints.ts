@@ -5,4 +5,5 @@ export class EndPoints {
     public static DELETE_TASK='/deleteTask';
     public static EDIT_TASK='/editTask';
     public static NEW_USER_REGISTER='/registerUser';
+    public static VALID_USER_LOGIN='/loginUser';
 }

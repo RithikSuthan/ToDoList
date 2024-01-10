@@ -45,5 +45,9 @@ export class TodoserviceService {
     const endpoint = this.register_service_url + EndPoints.NEW_USER_REGISTER;
     return this.http.put<any>(endpoint, postObj);
   }  
+  validUser(postObj: any) {
+    const endpoint = this.register_service_url + EndPoints.VALID_USER_LOGIN;
+    return this.http.post<any>(endpoint, postObj);
+  }
 
 }
