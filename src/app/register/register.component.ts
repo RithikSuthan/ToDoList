@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   constructor(private service:TodoserviceService) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("userId");
   }
   registerUser()
   {

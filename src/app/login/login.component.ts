@@ -16,17 +16,19 @@ export class LoginComponent implements OnInit {
   constructor(private service:TodoserviceService,private router :Router) { }
 
   ngOnInit(): void {
+    localStorage.removeItem("userId");
   }
 
   
   loginUser()
   {
-    console.log(this.data);
+    // console.log(this.data);
     this.service.validUser(this.data).subscribe(
       (response) => {
         console.log('API Response:', response);
         if (response && response.status === 'success') {
           console.log('User added successfully:', response.message);
+          localStorage.setItem("userId",this.data.emailId);
           this.router.navigate(['/', 'home'])
     .then(nav => {
       console.log(nav); // true if navigation is successful
