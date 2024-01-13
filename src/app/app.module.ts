@@ -9,13 +9,15 @@ import { HttpClientModule } from  '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
     RegisterComponent,
     LoginComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
