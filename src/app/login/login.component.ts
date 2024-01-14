@@ -9,6 +9,7 @@ import { TodoserviceService } from 'services/todoservice.service';
 })
 export class LoginComponent implements OnInit {
 
+  viewLogin:any;
   data={
     emailId:'',
     password:''
@@ -17,9 +18,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem("userId");
+    this.viewLogin=true;
   }
 
-  
+  ngOnDestroy()
+  {
+    this.viewLogin=false;
+  }
   loginUser()
   {
     // console.log(this.data);

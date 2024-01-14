@@ -1,15 +1,40 @@
-<div>
+<!-- <div>
     <div>
+        <div>
+            <img src="../../assets/avatharLogo.gif" class="avathar">
+        </div>
+        <div class="formClass">
+    <form>
+        <label>Email Id  :</label>&nbsp;
+        <input type="text" [(ngModel)]="data.emailId" name="emailId"><br><br>
+        <label>Password:</label>&nbsp;
+        <input type="text" [(ngModel)]="data.password" name="password">
+        <br><br>
+        <button type="button" (click)="loginUser()" style="margin-left:33%;">Sign In</button>
+    </form>
+        </div>
+    </div>
+    
+    <div *ngIf="viewLogin" class="backOverlay"></div>
+</div> -->
+
+<div class="main-container">
+    <div style="z-index: 2;position: relative;">
+      <div>
         <img src="../../assets/avatharLogo.gif" class="avathar">
+      </div>
+      <div class="formClass">
+        <form>
+          <label>Email Id :</label>&nbsp;
+          <input type="text" [(ngModel)]="data.emailId" name="emailId"><br><br>
+          <label>Password:</label>&nbsp;
+          <input type="text" [(ngModel)]="data.password" name="password">
+          <br><br>
+          <button type="button" (click)="loginUser()" style="margin-left:33%;">Sign In</button>
+        </form>
+      </div>
     </div>
-    <div class="formClass">
-<form>
-    <label>Email Id  :</label>&nbsp;
-    <input type="text" [(ngModel)]="data.emailId" name="emailId"><br><br>
-    <label>Password:</label>&nbsp;
-    <input type="text" [(ngModel)]="data.password" name="password">
-    <br><br>
-    <button type="button" (click)="loginUser()" style="margin-left:33%;">Sign In</button>
-</form>
-    </div>
-</div>
+  
+    <div *ngIf="viewLogin" class="backOverlay"></div>
+  </div>
+  
