@@ -9,7 +9,19 @@ export class NavBarComponent implements OnInit {
 
   constructor() { }
 
+  viewBar:any;
+  viewPage:any;
   ngOnInit(): void {
+    let val=localStorage.getItem("user");
+    if(val)
+    {
+      this.viewBar=true;
+    }
+    let page=localStorage.getItem("page");
+    if(page)
+    {
+      this.viewPage=true;
+    }
   }
 
 }

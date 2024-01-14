@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem("userId");
+    localStorage.removeItem("page");
     this.viewLogin=true;
   }
 
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
         if (response && response.status === 'success') {
           console.log('User added successfully:', response.message);
           localStorage.setItem("userId",this.data.emailId);
+          localStorage.setItem("page","home");
           this.router.navigate(['/', 'home'])
     .then(nav => {
       console.log(nav); // true if navigation is successful
