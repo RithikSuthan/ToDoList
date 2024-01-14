@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoserviceService } from 'services/todoservice.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     emailId:'',
     password:''
   }
-  constructor(private service:TodoserviceService,private router :Router) { }
+  constructor(private service:TodoserviceService,private router :Router,private nav:NavBarComponent) { }
 
   ngOnInit(): void {
     localStorage.removeItem("userId");
@@ -34,8 +35,9 @@ export class LoginComponent implements OnInit {
         console.log('API Response:', response);
         if (response && response.status === 'success') {
           console.log('User added successfully:', response.message);
-          localStorage.setItem("userId",this.data.emailId);
+          localStorage.setItem("user",this.data.emailId);
           localStorage.setItem("page","home");
+          this.nav.ngOnInit();
           this.router.navigate(['/', 'home'])
     .then(nav => {
       console.log(nav); // true if navigation is successful
