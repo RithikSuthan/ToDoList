@@ -138,4 +138,13 @@ export class BodyComponent implements OnInit {
       this.ngOnInit();
     }, 1000);
   }
+  closePopUp()
+  {
+    this.popUpModal=false;
+    this.popUPModalEdit=false;
+  }
+  signOut()
+  {
+    localStorage.removeItem("user");
+  }
 }

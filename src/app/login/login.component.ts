@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private service:TodoserviceService,private router :Router,private nav:NavBarComponent) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+    }, 1000);
     localStorage.removeItem("userId");
     localStorage.removeItem("page");
     this.viewLogin=true;

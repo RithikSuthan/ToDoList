@@ -1,5 +1,5 @@
 <div style="display: flex;flex-direction: row;justify-content: flex-end;width: 100%;font-size: x-large;background-color: antiquewhite;text-decoration: none;">
-  <span><img src="../../assets/logout.png" style="height: 25px;width: 25px;"><a routerLink="/login"  ariaCurrentWhenActive="page" class="tab">Sign Out</a></span>
+  <span><img src="../../assets/logout.png" style="height: 25px;width: 25px;"><a (click) = "signOut()" routerLink="/login"  ariaCurrentWhenActive="page" class="tab" >Sign Out</a></span>
 </div>
 <router-outlet></router-outlet>
   <div class="main-container">
@@ -35,6 +35,12 @@
 
 
 <div class="popUpModal" *ngIf="popUpModal">
+  <button type="button"  class="deleteButton"  (click)="closePopUp()" style="height: 20px; 
+  width: 20px;
+  padding: 0px;
+  position: fixed;
+  top: 47%;
+  right: 9%;">X</button>
     <input type="text" [(ngModel)]="data.plan" style="margin-left: 32px;
     margin-top: 29px;">
     <br>
@@ -44,6 +50,12 @@
 
 
 <div class="popUpModal" *ngIf="popUPModalEdit">
+  <button type="button"  class="deleteButton"  (click)="closePopUp()" style="height: 20px; 
+  width: 20px;
+  padding: 0px;
+  position: fixed;
+  top: 47%;
+  right: 9%;">X</button>
     <input type="text" [(ngModel)]="editPlan" style="margin-left: 32px;
     margin-top: 29px;">
     <br>
