@@ -2,7 +2,7 @@
   <span><img src="../../assets/logout.png" style="height: 25px;width: 25px;"><a routerLink="/login"  ariaCurrentWhenActive="page" class="tab">Sign Out</a></span>
 </div>
 <router-outlet></router-outlet>
-<div>
+  <div class="main-container">
     <div>
         <h1 class="header">
             Plan For Today</h1>
@@ -11,12 +11,17 @@
         <table>
             <tr *ngFor="let item of rowData; let i = index">
                 <td>
-                  <div class="rowData checkbox">
-                    <input type="checkbox" (click)="clickedCheckBox(item.taskNo)" [checked]="item.status">
-                    {{ item?.plan }}
-                    <i style="margin-left: 150px;" class="fas fa-edit" (click)="edit(item.taskNo)"></i>
-                    <button type="button" style="margin-left: 0.5rem;" (click)="deleteTask(item.taskNo)" class="deleteButton">X</button>
-                  </div>
+            <div class="rowData checkbox" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+              <span><input type="checkbox" (click)="clickedCheckBox(item.taskNo)" [checked]="item.status"></span>
+              <span style="flex: 1;">
+                {{ item?.plan }}
+              </span>
+              <span>
+                <i class="fas fa-edit" (click)="edit(item)"></i>
+                <button type="button" style="margin-left: 0.5rem;" (click)="deleteTask(item.taskNo)" class="deleteButton">X</button>  
+              </span>
+            </div>
+
                 </td>
               </tr>
               
@@ -27,6 +32,7 @@
         <i class="fas fa-plus" (click)="addPlan()"></i>
      </div>    
 </div>
+
 
 <div class="popUpModal" *ngIf="popUpModal">
     <input type="text" [(ngModel)]="data.plan" style="margin-left: 32px;
@@ -44,3 +50,5 @@
     <button class="editPopup" (click)="editPlanMessage()" style="margin-top: 15px;
     margin-left: 84px;background-color: lightblue;">EDIT</button>
 </div>
+
+<div *ngIf="popUpModal || popUPModalEdit" class="backOverlay"></div>

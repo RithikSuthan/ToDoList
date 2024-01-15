@@ -111,10 +111,11 @@ export class BodyComponent implements OnInit {
       this.ngOnInit();
     }, 1000);
   }
-  edit(taskNo: any)
+  edit(task: any)
   {
       this.popUPModalEdit=true;
-      this.editTaskNo=taskNo;
+      this.editTaskNo=task.taskNo;
+      this.editPlan=task.plan;
   }
   editPlanMessage()
   {

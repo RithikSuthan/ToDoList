@@ -4,6 +4,11 @@
     text-align: center;
     color: darkblue;
 }
+.main-container {
+    height: 93%;
+    width: 100%;
+    position: relative;
+  }
 .mainBody
 {
     border: 3px solid lightblue;
@@ -28,6 +33,7 @@
     margin-left: 83px;
     z-index: 100000;
     border-radius: 10%;
+    background-color: slategray;
 }
 .addPopup
 {
@@ -42,12 +48,12 @@
 .rowData
 {
     background-color: lightsteelblue;
-    width: 100%;
+    // width: 100%;
     font-size: 1.25rem;
     font-family: sans-serif;
     margin: 10px;
     padding: 10px;
-    width: 350px;
+    // width: 350px;
 }
 
 .checkbox input:checked {
@@ -81,4 +87,14 @@
     margin-left: 5px;
     font-family: sans-serif;
 }
+.backOverlay {
+    height: 105%;
+    width: 100%;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: 1; /* Ensure the overlay is above other content */
+  }
   
