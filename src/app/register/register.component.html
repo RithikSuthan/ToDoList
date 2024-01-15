@@ -1,4 +1,33 @@
-<div>
+<div class="main-container">
+    <div style="z-index: 2;position: relative;">
+        <span style="color: white;
+        text-align: center;
+        font-size: xx-large;
+        font-style: italic;
+        /* margin-top: 25%; */
+        margin-left: 27%;">Create User</span>
+      <div>
+        <img src="../../assets/avatharLogo.gif" class="avathar">
+      </div>
+      <div class="formClass">
+        <form>
+          <label>Email Id :</label>&nbsp;
+          <input type="text" [(ngModel)]="data.emailId" name="emailId"><br><br>
+          <label>Password:</label>&nbsp;
+          <input type="text" [(ngModel)]="data.password" name="password">
+          <br><br>
+          <button type="button" (click)="registerUser()" style="margin-left: 45%;
+          background-color: white;
+          height: 30px;
+          width: 70px;
+          font-weight: bolder;">Create</button>
+        </form>
+      </div>
+    </div>
+  
+    <div *ngIf="viewLogin" class="backOverlay"></div>
+  </div>
+<!-- <div>
     <div>
         <img src="../../assets/avatharLogo.gif" class="avathar">
     </div>
@@ -12,4 +41,4 @@
     <button type="button" (click)="registerUser()" style="margin-left:33%;">Register</button>
 </form>
     </div>
-</div>
+</div> -->
